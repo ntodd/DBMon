@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title DBMon
+    %link{ :href => "/stylesheets/screen.css", :rel => "stylesheet", :type => "text/css", :media => "screen" }
+  %body
+    #header
+    #nav
+      %ul
+        - @tables.each do |table|
+          %li
+            - if table.to_s == params[:table_name].to_s
+              %a{ :href => "/table/#{table}", :class => "selected"}= table
+            - else
+              %a{ :href => "/table/#{table}" }= table
+    #content
+      = yield

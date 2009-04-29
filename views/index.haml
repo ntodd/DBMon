@@ -1,0 +1,9 @@
+%table.data
+  %tr
+    - @dataset.first.each do |entry|
+      %th
+        = entry[0]
+  - @dataset.each do |record|
+    %tr
+      - record.each do |entry|
+        %td= entry[1]
